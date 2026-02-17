@@ -1,0 +1,842 @@
+:root {
+    --dark-bg: #1a1b1e;
+    --accent-gold: linear-gradient(90deg, #a38b75 0%, #8b735b 100%);
+    --text-muted: #888;
+}
+
+body {
+    background-color: #111;
+    /* Page background */
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 100px;
+    /* Space for the fixed navbar */
+}
+
+.custom-nav {
+    background-color: var(--dark-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Logo Styling */
+.brand-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: #fff;
+}
+
+.tagline {
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* Nav Links */
+.nav-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: #a38b75 !important;
+}
+
+/* The "Make Appointment" Button */
+.btn-cta {
+    background: var(--accent-gold);
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    /* Square look like the image */
+    padding: 12px 25px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.btn-cta:hover {
+    opacity: 0.9;
+    color: #fff;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: var(--dark-bg);
+        padding: 20px;
+        margin-top: 15px;
+    }
+
+    .btn-cta {
+        padding: 8px 15px;
+        font-size: 0.75rem;
+    }
+
+    .brand-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Filter for a gold-ish logo if using a black icon */
+.filter-sepia {
+    filter: sepia(0.5) hue-rotate(10deg) brightness(0.9);
+}
+
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    /* Clean background color as fallback */
+    background-color: #000;
+}
+
+/* Moving Background Image */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+    background-size: cover;
+    z-index: 0;
+    animation: kenBurns 20s infinite alternate;
+}
+
+/* Dark Overlay on top of image */
+.hero-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Ensure text is above background */
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Animation Keyframes */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    /* Responsive font sizing */
+    font-weight: 700;
+    line-height: 1.1;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-description {
+    font-size: 1rem;
+    max-width: 550px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.5px;
+}
+
+/* Matching the Gold/Bronze Button from your Navbar */
+.btn-hero {
+    background: linear-gradient(90deg, #a38b75 0%, #8b735b 100%);
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 15px 40px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 70vh;
+        padding: 60px 0;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* About Section Styles */
+.about-section {
+    background-color: #fff;
+    /* Clean white background */
+}
+
+.about-subtitle {
+    font-family: 'Playfair Display', serif;
+    color: #a38b75;
+    /* Gold/Bronze */
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.about-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+}
+
+.about-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.btn-about {
+    background-color: #a38b75;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-about:hover {
+    background-color: #8b735b;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.about-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.play-btn {
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a38b75;
+    font-size: 1.2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    color: #8b735b;
+    background-color: #f8f8f8;
+}
+
+/* Services Section Styles */
+
+.services-section {
+    background-color: #111;
+    color: #fff;
+}
+
+.services-subtitle {
+    font-family: 'Playfair Display', serif;
+    color: #a38b75;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.services-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* The Icon Divider under the title */
+.divider-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0.6;
+}
+
+.divider-icon img {
+    filter: brightness(0) invert(1);
+    /* Makes the icon white */
+    opacity: 0.7;
+}
+
+/* Service Card Styling */
+.service-card {
+    background: #1a1a1a;
+    padding: 30px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: #222;
+    border-color: #a38b75;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.img-container img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 2px solid #a38b75;
+    padding: 5px;
+}
+
+.service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.service-text {
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.6;
+}
+
+.barbers-section {
+    background-color: #fdfbf7;
+    /* Matches the services section */
+}
+
+.section-subtitle {
+    color: #a38b75;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Barber Card & Hover Effect */
+.barber-card {
+    cursor: pointer;
+    max-width: 280px;
+    /* Constrain width to make it smaller */
+    margin: 0 auto;
+    /* Center in the column */
+}
+
+.barber-card img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    /* Ensure image fills the constrained card */
+    display: block;
+    /* Remove bottom space */
+}
+
+.barber-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(163, 139, 117, 0.9);
+    /* Bronze overlay */
+    height: 35%;
+    /* Height of the info box */
+    padding: 20px;
+    transform: translateY(100%);
+    /* Start hidden below */
+    transition: transform 0.4s ease-in-out;
+}
+
+.barber-card:hover .barber-overlay {
+    transform: translateY(0);
+    /* Slide up on hover */
+}
+
+.barber-card:hover img {
+    transform: scale(1.05);
+}
+
+.barber-name {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.barber-role {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Testimonial Section Styles */
+.testimonial-section {
+    position: relative;
+    min-height: 60vh;
+    /* Big section */
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1705976062088-5433328c2dcd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    /* Parallax effect */
+    color: #fff;
+    padding: 200px 0;
+}
+
+/* Removed ::before as background is now on the main element */
+
+
+.testimonial-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* The Quote Styling */
+.testimonial-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+}
+
+/* The Author Styling */
+.testimonial-author {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #a38b75;
+    /* Using the gold/bronze color */
+    margin-top: 20px;
+}
+
+/* Carousel Indicators (Dots) */
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-indicators button.active {
+    background-color: #a38b75;
+    /* Active dot in gold */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .testimonial-quote {
+        font-size: 1.4rem;
+    }
+}
+
+/* Pricing Section Styles */
+.pricing-section {
+    background-color: #111;
+    color: #fff;
+}
+
+/* Category Labels (Hair Styling, Shaving, etc.) */
+.category-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #a38b75;
+    /* Gold/Bronze color */
+    border-bottom: 2px solid #a38b75;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Individual Price Item Container */
+.price-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+/* Service Name (e.g., Hair Cut) */
+.price-item .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* The Dotted Line */
+.price-dots {
+    border-bottom: 1px dotted #888;
+    height: 1px;
+    /* Adjust thickness if needed */
+}
+
+/* The Price Value (e.g., $8) */
+.price-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #a38b75;
+    /* Gold/Bronze color */
+    min-width: 40px;
+    /* Ensures alignment */
+    text-align: right;
+}
+
+/* Service Description */
+.service-desc {
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+/* 
+footer */
+.footer-section {
+    background-color: #1a1b1e;
+    /* Matches navbar */
+    color: #fff;
+}
+
+.footer-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-text {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 300px;
+}
+
+.footer-contact {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Social Icons */
+.footer-socials a {
+    color: #888;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #a38b75;
+    /* Bronze accent */
+}
+
+/* Divider & Copyright */
+.footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 1;
+}
+
+.copyright-text {
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 767px) {
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .footer-text {
+        max-width: 100%;
+    }
+}
+
+/* Ensure exactly 7 columns for the Bootstrap row */
+.row-cols-7>* {
+    flex: 0 0 auto;
+    width: 14.2857142857%;
+}
+
+.day-label {
+    color: #a38b75;
+    /* Gold/Bronze color */
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.day-card {
+    aspect-ratio: 1 / 1;
+    background: #1c1c1c;
+    color: #fff;
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: 0.3s;
+}
+
+.day-card.spacer {
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
+.day-card.past {
+    color: #444;
+    background: #141414;
+    cursor: not-allowed;
+}
+
+.day-card.active {
+    background: #a38b75 !important;
+    /* Matches your screenshot selection */
+    color: #fff !important;
+}
+
+.nav-arrow {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+}
+
+.text-gold {
+    color: #a38b75;
+}
+
+.btn-outline-gold {
+    border: 2px solid #a38b75;
+    color: #fff;
+    background: transparent;
+    transition: 0.3s;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.btn-outline-gold:hover {
+    background: #a38b75;
+    color: #fff;
+}
+
+.slot-row:last-child {
+    border-bottom: none !important;
+}
+
+/* =========================================
+   MOBILE OPTIMIZATION (max-width: 768px)
+   ========================================= */
+@media (max-width: 768px) {
+    body {
+        padding-top: 100px;
+        /* Smaller padding for mobile */
+    }
+
+    /* Typography Adjustments */
+    .hero-title {
+        font-size: 2.5rem;
+        /* Smaller hero title */
+    }
+
+
+    .section-title,
+    .about-title {
+        font-size: 2rem;
+        /* Smaller section titles */
+    }
+
+    .testimonial-quote {
+        font-size: 1.3rem;
+    }
+
+    /* Spacing Adjustments */
+    /* Spacing Adjustments */
+    .hero-section {
+        /* Inherit 100vh from desktop, just adjust padding if needed */
+        padding: 60px 0;
+    }
+
+    .testimonial-section {
+        padding: 60px 0;
+        min-height: 40vh;
+    }
+
+    .about-section,
+    .services-section,
+    .barbers-section,
+    .pricing-section,
+    .booking-calendar-section {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    /* Element Adjustments */
+    .play-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    /* Booking / Calendar on Mobile */
+    .day-card {
+        padding: 5px;
+        font-size: 1rem;
+        height: 40px;
+        /* Force smaller square */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .day-label {
+        font-size: 0.7rem;
+    }
+
+    /* Slot Row: Stack content on very small screens */
+    .slot-row {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+}
+
+/* =========================================
+   BOOKING MODAL STYLES
+   ========================================= */
+.custom-modal {
+    background-color: #222;
+    /* Dark background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.appointment-details {
+    background-color: #2a2a2a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-title {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Custom Input Fields */
+.custom-input {
+    background-color: #333;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 0;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.custom-input::placeholder {
+    color: #888;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.custom-input:focus {
+    background-color: #333;
+    border-color: #a38b75;
+    box-shadow: none;
+    color: #fff;
+}
+
+/* Gold Button for Modal */
+.btn-gold {
+    background: #a38b75;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 12px;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background: #8b735b;
+    color: #fff;
+}

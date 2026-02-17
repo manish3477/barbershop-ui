@@ -133,3 +133,26 @@ window.openBookingModal = function (timeSlot, d, m, y) {
 
 // Initial Render
 renderCalendar();
+
+/* =========================================
+   SCROLL TO TOP FUNCTIONALITY
+   ========================================= */
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// Monitor scrolling
+window.addEventListener('scroll', () => {
+    // Show button when scrolled down more than 100px (approx navbar height)
+    if (window.scrollY > 100) {
+        scrollToTopBtn.classList.add('show-scroll');
+    } else {
+        scrollToTopBtn.classList.remove('show-scroll');
+    }
+});
+
+// Scroll to top on click
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});

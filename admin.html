@@ -160,6 +160,48 @@
             display: block;
         }
 
+        /* Custom Pills Styling */
+        .nav-pills .nav-link {
+            background: transparent;
+            color: var(--text-cream);
+            border: 1px solid rgba(236, 223, 204, 0.1);
+            font-size: 0.8rem;
+            padding: 10px 20px;
+            white-space: nowrap;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: var(--accent) !important;
+            border-color: var(--accent);
+        }
+
+        /* Table Customization */
+        .table {
+            background-color: transparent !important;
+            border-color: rgba(236, 223, 204, 0.05);
+        }
+
+        .table td {
+            padding: 15px 10px;
+            color: var(--text-cream);
+            background-color: transparent !important;
+        }
+
+        .table thead th {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 15px;
+        }
+
+        /* Hide scrollbar for tabs but keep functionality */
+        #bookingTabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        #bookingTabs {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         @media (max-width: 992px) {
             .sidebar {
                 width: 280px;
@@ -186,7 +228,8 @@
             .mobile-toggle {
                 display: block;
             }
-            .main-content{
+
+            .main-content {
                 margin-top: 100px;
             }
         }
@@ -219,6 +262,8 @@
             <a class="nav-link" href="#testimonials"><i class="fas fa-quote-left me-2"></i>
                 <span>Testimonials</span></a>
             <a class="nav-link" href="#communication"><i class="fas fa-bell me-2"></i> <span>Notifications</span></a>
+            <a class="nav-link" href="#live-bookings"><i class="fas fa-list-check me-2"></i> <span>
+                    Bookings</span></a>
         </nav>
     </div>
 
@@ -484,6 +529,91 @@
                                 booking</label>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div id="live-bookings" class="admin-card">
+            <div class="section-header">
+                <h3 class="m-0"><i class="fas fa-list-check me-2 text-gold"></i> Appointments Feed</h3>
+                <span class="badge bg-success">Live Updates</span>
+            </div>
+
+            <ul class="nav nav-pills mb-4 border-bottom border-secondary pb-3" id="bookingTabs" role="tablist"
+                style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active fw-bold text-uppercase me-2" data-bs-toggle="pill"
+                        data-bs-target="#tab-today">Today</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-bold text-uppercase me-2" data-bs-toggle="pill"
+                        data-bs-target="#tab-feb18">18 Feb</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-bold text-uppercase me-2" data-bs-toggle="pill"
+                        data-bs-target="#tab-feb19">19 Feb</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link fw-bold text-uppercase me-2" data-bs-toggle="pill"
+                        data-bs-target="#tab-feb20">20 Feb</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="bookingTabsContent">
+                <div class="tab-pane fade show active" id="tab-today">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover align-middle">
+                            <thead class="text-gold small text-uppercase">
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Customer</th>
+                                    <th>Service</th>
+                                    <th>Barber</th>
+                                    <th>Status</th>
+                                    <th class="text-end">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold">10:00 AM</td>
+                                    <td>
+                                        <div class="d-flex flex-column">
+                                            <span>John Smith</span>
+                                            <small class="text-white-50"
+                                                style="font-size: 0.7rem;">john@example.com</small>
+                                        </div>
+                                    </td>
+                                    <td>Skin Fade</td>
+                                    <td>José Carpio</td>
+                                    <td><span class="badge border border-success text-success">Confirmed</span></td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-outline-danger" title="Cancel"><i
+                                                class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">11:00 AM</td>
+                                    <td>
+                                        <div class="d-flex flex-column">
+                                            <span>Mike Ross</span>
+                                            <small class="text-white-50" style="font-size: 0.7rem;">+1 917 222
+                                                3333</small>
+                                        </div>
+                                    </td>
+                                    <td>Beard Trim</td>
+                                    <td>José Carpio</td>
+                                    <td><span class="badge border border-warning text-warning">Pending</span></td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-outline-danger"><i
+                                                class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab-feb18">
+                    <p class="text-center py-5 text-white-50 small">No bookings for February 18th yet.</p>
                 </div>
             </div>
         </div>
